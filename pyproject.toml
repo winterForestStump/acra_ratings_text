@@ -1,0 +1,29 @@
+[project]
+name = "acra-ratings-text"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "winterForestStump", email = "101496738+winterForestStump@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "altair[all]>=6.3.0",
+    "bs4>=0.0.2",
+    "duckdb>=2.0.0",
+    "ipykernel>=7.4.0",
+    "matplotlib>=3.11.2",
+    "pandas>=3.1.0",
+    "selenium>=4.51.0",
+    "sentence-transformers>=6.2.0",
+    "tqdm>=4.70.1",
+    "umap-learn>=0.5.12",
+    "webdriver-manager>=4.1.2",
+]
+
+[project.scripts]
+acra-ratings-text = "acra_ratings_text:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"

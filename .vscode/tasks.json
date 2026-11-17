@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Scrape issuers",
+      "type": "shell",
+      "command": "uv",
+      "args": ["run", "python", "code/issuers_scraper.py"],
+      "options": { "cwd": "${workspaceFolder}" }
+    },
+    {
+      "label": "Scrape rating texts",
+      "type": "shell",
+      "command": "uv",
+      "args": ["run", "python", "code/rating_texts_scraper.py"],
+      "options": { "cwd": "${workspaceFolder}" }
+    },
+    {
+      "label": "Load rating texts",
+      "type": "shell",
+      "command": "uv",
+      "args": ["run", "database/pipeline.py", "load-texts"],
+      "options": { "cwd": "${workspaceFolder}" }
+    },
+    {
+      "label": "Run scraper pipeline",
+      "dependsOn": ["Scrape issuers", "Scrape rating texts", "Load rating texts"],
+      "dependsOrder": "sequence",
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}
